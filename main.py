@@ -1,3 +1,5 @@
+#This is the main program for my mood tracker
+
 print("Hello, welcome to my mood tracker test.")
 print("Please tell me, which day is today?")
 print("Monday, Tuesday, Wednesday, Thursday, Friday or Saturday.")
