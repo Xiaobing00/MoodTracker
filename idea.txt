@@ -1,0 +1,15 @@
+Input:
+The program will ask me which day it is. Maybe Monday, Tuesday, Wednesday, Thursday, Friday or Saturday. I will choose one.
+
+Then it will ask me, “From 1 to 10, what is your mood number today?” I will type the number.
+
+Then it say, “Ask me anything.” I can write one short note about my day, like “exam today” or “went to gym.”
+
+Output:
+The program can show report. Maybe one type is weekly mood number only.
+
+Another type is journal that show my short note from each day. 
+
+The output can also be save in one file, like .txt file, so I can see later.
+
+
