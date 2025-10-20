@@ -18,9 +18,9 @@ If I can see the pattern, maybe I can know what make me happy or not good, and t
 
 To start the program in terminal:
 
-pip install -r requirements.txt
+pip install -r requirement.txt
 
-main.python main.py
+python main.py
 
 Some important command:
 
