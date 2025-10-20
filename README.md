@@ -27,6 +27,47 @@ Some important command:
 1. Command + C to exit the code
 2. clear to clear the terminal
 
+# Folder Structure
+
+- documentations folder
+  - reference.md
+  - idea.txt
+- drafts(Not working) folder
+  - experiments folder
+    - mood.py
+    - input.py
+    - plot.py
+    - save.py
+  - 1.py
+  - 2.py
+  - 3.py
+- main.py
+- README.md
+- requirement.txt
+
+Explain:
+
+- documentations (learning notes and references, not code)
+
+  - reference.md (all tutorial links and documentation I used)
+  - idea.txt (first idea and plan when starting project)
+  - I will add AI acknowlegdement later
+
+- drafts (Not working) (early test code and failed versions)
+
+  - experiments (test code for each function)
+    - mood.py (test mood data logic)
+    - input.py (test input function)
+    - plot.py (test matplotlib plotting)
+    - save.py (test saving files)
+  - 1.py (early version 1)
+  - 2.py (early version 2)
+  - 3.py (early version 3)
+
+- main.py (final working code of the project)
+- README.md (explain project, why and how to run it)
+- requirements.txt (list python libraries to install before running)
+
 # References:
 
 • Matplotlib Development Team. “matplotlib.pyplot.plot — Plotting in Pyplot.” Matplotlib.org, https://matplotlib.org/stable/api/_as_gen/matplotlib.pyplot.plot.html.
