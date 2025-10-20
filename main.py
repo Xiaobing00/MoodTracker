@@ -10,7 +10,7 @@ import matplotlib.pyplot as plt
 print("Hello, welcome to my mood tracker!")
 print("I hope you're having a good day :)")
 
-# Initialize mood and note variables
+# Create mood and note variables
 monday_mood = 0
 tuesday_mood = 0
 wednesday_mood = 0
@@ -28,6 +28,7 @@ saturday_note = ""
 sunday_note = ""
 
 # Main options
+# 3 options: 1. Record mood, 2. See summary, 3. Plot graph, 4. Save and exit
 while True:
     print("")
     print("--- Mood Tracker Options ---")
@@ -40,6 +41,7 @@ while True:
     choice = int(choice_input)
 
     # Option 1: Record mood
+    # Use should choose the which day is it first from 1-7
     if choice == 1:
         print("")
         print("Which day is it?")
@@ -51,24 +53,34 @@ while True:
         print("6 - Saturday")
         print("7 - Sunday")
 
+        # Save the inputs in day_input
         day_input = input("Type the number of the day: ")
+        # Type casting: convert string to integer
         day_num = int(day_input)
 
+        #Save the mood in mood_input
         mood_input = input("Mood from 1 to 10: ")
+        # Type casting: convert string to integer
         mood = int(mood_input)
 
+
+        # Determine mood word. 
+        # Feedback in class: We don't want to show the number only, we want to show actual word of the mood
+        # I added emoji to each to make it more vivid
         if mood <= 2:
             mood_word = "really down 😢"
         elif mood <= 4:
             mood_word = "a bit low 🙁"
         elif mood <= 6:
-            mood_word = "so-so 😐"
+            mood_word = "so so 😐"
         elif mood <= 8:
             mood_word = "pretty good 🙂"
         else:
             mood_word = "super happy 🤩"
 
-        note_input = input("Short note (press Enter to skip): ")
+
+        # Ask use if they want to write a short note
+        note_input = input("Short note: ")
 
         if day_num == 1:
             monday_mood = mood

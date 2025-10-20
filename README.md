@@ -56,3 +56,5 @@ Today is which day of the week?
 5 - Friday
 6 - Saturday
 7 - Sunday"
+
+TODO: add chatgpt prompt screenshot to a file and upload to git
