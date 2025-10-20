@@ -1,5 +1,21 @@
 # MoodTracker
 
+This prototype is for track my mood everyday, from 1 to 10.  
+I can also write small note about what happen that day if I want.  
+At the end of the week, I can see all my mood and notes together.  
+I hope by doing this I can understand myself more, like why I feel good or bad.
+
+## WHY
+
+I am new international student, I leave my home country, new language and new culture.  
+Sometimes I feel lonely, and my eating is not good, I eat too much sugar, I sleep too late.  
+Sometimes I dont even notice this, it just happen.  
+I hear a quote said “you cant grow things you dont measure.”  
+So I think I want to grow my emotion, and I make this small program to track how I feel each day.  
+If I can see the pattern, maybe I can know what make me happy or not good, and then I can change.
+
+# How to run the program
+
 Run python main.py to start the program in terminal
 
 Some important command:
@@ -7,7 +23,8 @@ Some important command:
 1. Command + C to exit the code
 2. clear to clear the terminal
 
-References:
+# References:
+
 • Matplotlib Development Team. “matplotlib.pyplot.plot — Plotting in Pyplot.” Matplotlib.org, https://matplotlib.org/stable/api/_as_gen/matplotlib.pyplot.plot.html.
 • Matplotlib Development Team. “matplotlib.pyplot.savefig — Save the current figure.” Matplotlib.org, https://matplotlib.org/stable/api/_as_gen/matplotlib.pyplot.savefig.html.
 • Matplotlib Development Team. “matplotlib.pyplot.show — Display a figure.” Matplotlib.org, https://matplotlib.org/stable/api/_as_gen/matplotlib.pyplot.show.html.
@@ -16,7 +33,7 @@ References:
 • Python Software Foundation. “Unicode HOWTO — Python Documentation.” Python.org, https://docs.python.org/3/howto/unicode.html.
 • Real Python. “Reading and Writing Files in Python (Guide).” Real Python, https://realpython.com/read-write-files-python/.
 
-AI Acknowledge:
+# AI Acknowledge:
 
 - Use of chatgpt to correct my grammar in the menu
 - Use of chatgpt to check if my reference structure is correct
