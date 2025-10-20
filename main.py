@@ -1,5 +1,8 @@
 # This is the main program for my mood tracker
-# English comment only
+# The purpose of the prototype is to be able to track user's mood daily with a scale of 1 to 10
+# The user can optionally write a short note about the day
+# The end of the week, the user can see a summary of their moods and notes
+# By doing this, user can understand their mood patterns better
 
 import matplotlib.pyplot as plt
 
