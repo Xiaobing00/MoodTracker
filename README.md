@@ -36,6 +36,8 @@ Some important command:
 • Python Software Foundation. “Input and Output — Python Documentation.” Python.org, https://docs.python.org/3/tutorial/inputoutput.html.
 • Python Software Foundation. “Unicode HOWTO — Python Documentation.” Python.org, https://docs.python.org/3/howto/unicode.html.
 • Real Python. “Reading and Writing Files in Python (Guide).” Real Python, https://realpython.com/read-write-files-python/.
+• OpenAI. “ChatGPT (GPT-5).” OpenAI, https://chat.openai.com.  
+• Google. “Gemini.” Google DeepMind, https://gemini.google.com.
 
 # AI Acknowledge:
 
