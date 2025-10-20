@@ -82,6 +82,8 @@ while True:
         # Ask use if they want to write a short note
         note_input = input("Short note: ")
 
+
+        # Check which day is it, save the mood and note to the corsponding variables
         if day_num == 1:
             monday_mood = mood
             monday_note = note_input
@@ -113,14 +115,14 @@ while True:
         else:
             print("Invalid day number")
 
-        # Print
+        # Print the user's input
         print("Your mood number is:", mood)
         print("Your feeling is:", mood_word)
         print("Your note is:", note_input)
 
-    # Option 2: See summary
+    # Option 2: See summary to allow user to see which day is recorded and which is not
     elif choice == 2:
-        print("")
+        print("") #new line
         print("--- Weekly Summary ---")
         print("Monday Mood:", monday_mood, "Note:", monday_note)
         print("Tuesday Mood:", tuesday_mood, "Note:", tuesday_note)
@@ -130,7 +132,7 @@ while True:
         print("Saturday Mood:", saturday_mood, "Note:", saturday_note)
         print("Sunday Mood:", sunday_mood, "Note:", sunday_note)
 
-    # Option 3: Plot graph
+    # Option 3: Plot graph using matplotlib
     elif choice == 3:
         x = ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday", "Sunday"]
         y = [monday_mood, tuesday_mood, wednesday_mood, thursday_mood, friday_mood, saturday_mood, sunday_mood]
