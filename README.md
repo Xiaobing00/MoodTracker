@@ -9,14 +9,18 @@ I hope by doing this I can understand myself more, like why I feel good or bad.
 
 I am new international student, I leave my home country, new language and new culture.  
 Sometimes I feel lonely, and my eating is not good, I eat too much sugar, I sleep too late.  
-Sometimes I dont even notice this, it just happen.  
-I hear a quote said “you cant grow things you dont measure.”  
+Sometimes I don't even notice this, it just happen.  
+I hear a quote said “you cant grow things you don't measure.”  
 So I think I want to grow my emotion, and I make this small program to track how I feel each day.  
 If I can see the pattern, maybe I can know what make me happy or not good, and then I can change.
 
 # How to run the program
 
-Run python main.py to start the program in terminal
+To start the program in terminal:
+
+pip install -r requirements.txt
+
+main.python main.py
 
 Some important command:
 
@@ -57,4 +61,4 @@ Today is which day of the week?
 6 - Saturday
 7 - Sunday"
 
-TODO: add chatgpt prompt screenshot to a file and upload to git
+Reminder: add chatgpt prompt screenshot to a file and upload to git
