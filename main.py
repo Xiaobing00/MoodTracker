@@ -3,6 +3,8 @@
 # The user can optionally write a short note about the day
 # The end of the week, the user can see a summary of their moods and notes
 # By doing this, user can understand their mood patterns better
+# Questions and feedbacks are welcome!
+
 
 import matplotlib.pyplot as plt
 
@@ -133,6 +135,11 @@ while True:
         print("Sunday Mood:", sunday_mood, "Note:", sunday_note)
 
     # Option 3: Plot graph using matplotlib
+    # Reference:
+    # Matplotlib Development Team. "matplotlib.pyplot.plot — Plotting in Pyplot." Matplotlib.org
+    # https://matplotlib.org/stable/api/_as_gen/matplotlib.pyplot.plot.html
+    # Tutorial used: https://matplotlib.org/stable/users/explain/quick_start.html
+    # I follow tutorial example to learn how to plot line and show it
     elif choice == 3:
         x = ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday", "Sunday"]
         y = [monday_mood, tuesday_mood, wednesday_mood, thursday_mood, friday_mood, saturday_mood, sunday_mood]
@@ -146,6 +153,11 @@ while True:
         plt.show()
 
     # Option 4: Save and exit
+    # Reference:
+    # Matplotlib Development Team. "matplotlib.pyplot.savefig — Save the current figure." Matplotlib.org
+    # https://matplotlib.org/stable/api/_as_gen/matplotlib.pyplot.savefig.html
+    # Tutorial used: https://matplotlib.org/stable/users/explain/quick_start.html#save-figures
+    # I learn how to save figure to pdf file from this tutorial
     elif choice == 4:
         file = open("mood_week.txt", "w")
         file.write("Monday Mood: " + str(monday_mood) + " Note: " + monday_note + "\n")
