@@ -1,7 +1,9 @@
 # This is the main program for my mood tracker
 # The purpose of the prototype is to be able to track user's mood daily with a scale of 1 to 10
 # The user can optionally write a short note about the day
+# User will also be able to see a line graph of their mood trend over the week
 # The end of the week, the user can see a summary of their moods and notes
+# Finally, the user can save all data to a text file and a PDF graph file
 # By doing this, user can understand their mood patterns better
 # Questions and feedbacks are welcome!
 
@@ -54,7 +56,7 @@ while True:
     # Option 1: Record mood
     # User should choose which day first
     if choice == 1:
-        print("")
+        print("") # new line
         print("Which day is it?")
         print("1 - Monday")
         print("2 - Tuesday")
@@ -75,8 +77,8 @@ while True:
         mood = int(mood_input)
 
         # Determine mood word
-        # Feedback from class: not just show number, but show mood feeling word
-        # I add emoji to make it more easy to understand
+        # Feedback from class tutor: not just show number, but show mood feeling word
+        # I add emoji to make it more easy to understand and fun
         if mood <= 2:
             mood_word = "really down 😢"
         elif mood <= 4:
@@ -122,10 +124,10 @@ while True:
             sunday_mood = mood
             sunday_note = note_input
             print("You recorded Sunday.")
-        else:
+        else: # My friend tested with invalid number 8, so I add this to catch invalid input
             print("Invalid day number")
 
-        # Print what the user recorded
+        # Print what the user recorded as a quik summary
         # I do this to help user check and to debug myself
         print("Your mood number is:", mood)
         print("Your feeling is:", mood_word)
@@ -186,9 +188,10 @@ while True:
         # I learned how to save plot as PDF from:
         # Matplotlib Development Team. https://matplotlib.org/stable/api/_as_gen/matplotlib.pyplot.savefig.html
         plt.figure()
-        plt.plot(["Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday", "Sunday"],
-                 [monday_mood, tuesday_mood, wednesday_mood, thursday_mood, friday_mood, saturday_mood, sunday_mood],
-                 marker='o')
+        #Same as above, we just move x and y values directly into plt.plot()
+        plt.plot(["Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday", "Sunday"], # x axis labels
+                 [monday_mood, tuesday_mood, wednesday_mood, thursday_mood, friday_mood, saturday_mood, sunday_mood],# y axis values
+                 marker='o') # plot the line with circle markers
         plt.ylim(0, 10) #set y axis limit; 10 is the max mood, 0 is the default min when user has not recorded
         plt.title("Weekly Mood Trend") # title of the graph
         plt.xlabel("Day") # x axis label
@@ -200,6 +203,11 @@ while True:
         print("Text saved as mood_week.txt")
         print("Graph saved as mood_week_graph.pdf")
         print("All saved. Bye!")
+
+        # Important to use break to make while true loop to exit
+        # We usually use a index number i for for loop, or while loop with condition
+        # Here we can't use a index number since we are not sure how many times user will use the program
+        # So we use while true to create an infinite loop, and use break to exit when needed
         break
 
     else:
