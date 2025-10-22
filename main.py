@@ -151,15 +151,15 @@ while True:
     # W3Schools. (2025). https://www.w3schools.com/python/matplotlib_intro.asp
     # Real Python. (2025). https://realpython.com/read-write-files-python/
     elif choice == 3:
-        x = ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday", "Sunday"]
-        y = [monday_mood, tuesday_mood, wednesday_mood, thursday_mood, friday_mood, saturday_mood, sunday_mood]
+        x = ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday", "Sunday"] # Create x axis labels with an array
+        y = [monday_mood, tuesday_mood, wednesday_mood, thursday_mood, friday_mood, saturday_mood, sunday_mood] # Create y axis values with an array
 
-        plt.plot(x, y, marker='o')
-        plt.ylim(0, 10)
-        plt.title("Weekly Mood Trend")
-        plt.xlabel("Day")
-        plt.ylabel("Mood (1-10)")
-        plt.grid(True)
+        plt.plot(x, y, marker='o') # plot the line with circle markers
+        plt.ylim(0, 10) # set y axis limit; 10 is the max mood, 0 is the default min when user has not recorded
+        plt.title("Weekly Mood Trend") # title of the graph
+        plt.xlabel("Day")   # x axis label
+        plt.ylabel("Mood (1-10)") # y axis label
+        plt.grid(True) # add grid for better visualization
         plt.show()
 
     # Option 4: Save to file and exit
