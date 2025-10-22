@@ -5,14 +5,14 @@
 # By doing this, user can understand their mood patterns better
 # Questions and feedbacks are welcome!
 
+import matplotlib.pyplot as plt  # we use matplotlib to make a line graph later
 
-import matplotlib.pyplot as plt
+# Greeting message to the user
+print("Hello, welcome to my mood tracker!")  # say hello
+print("I hope you're having a good day :)")  # friendly message
 
-# Greeting
-print("Hello, welcome to my mood tracker!")
-print("I hope you're having a good day :)")
-
-# Create mood and note variables
+# Create variables to save mood number for each day
+# Here we set all to 0 first because user has not recorded anything yet
 monday_mood = 0
 tuesday_mood = 0
 wednesday_mood = 0
@@ -21,6 +21,8 @@ friday_mood = 0
 saturday_mood = 0
 sunday_mood = 0
 
+# Create variables to save note for each day
+# Here we set all to empty string "" first
 monday_note = ""
 tuesday_note = ""
 wednesday_note = ""
@@ -29,24 +31,26 @@ friday_note = ""
 saturday_note = ""
 sunday_note = ""
 
-# Main options
-# 3 options: 1. Record mood, 2. See summary, 3. Plot graph, 4. Save and exit
+# This is the main loop
+# We use while True because we want the program to keep running
+# until the user chooses to save and exit
+# It will show menu again and again
 while True:
-    print("")
-    print("--- Mood Tracker Options ---")
-    print("1. Record Mood")
-    print("2. View Summary")
-    print("3. Plot Mood Graph (show)")
-    print("4. Save All and Exit")
+    print("")  # print empty line to make it look cleaner
+    print("--- Mood Tracker Options ---")  # menu title
+    print("1. Record Mood")  # option 1
+    print("2. View Summary")  # option 2
+    print("3. Plot Mood Graph (show)")  # option 3
+    print("4. Save All and Exit")  # option 4
 
-    choice_input = input("Choose option: ")
-    choice = int(choice_input)
+    choice_input = input("Choose option: ")  # ask user to choose
+    choice = int(choice_input)  # convert string to number
 
     # Option 1: Record mood
     # Use should choose the which day is it first from 1-7
     if choice == 1:
         print("")
-        print("Which day is it?")
+        print("Which day is it?")  # ask user to choose day
         print("1 - Monday")
         print("2 - Tuesday")
         print("3 - Wednesday")
@@ -60,11 +64,10 @@ while True:
         # Type casting: convert string to integer
         day_num = int(day_input)
 
-        #Save the mood in mood_input
+        # Save the mood in mood_input
         mood_input = input("Mood from 1 to 10: ")
         # Type casting: convert string to integer
         mood = int(mood_input)
-
 
         # Determine mood word. 
         # Feedback in class: We don't want to show the number only, we want to show actual word of the mood
@@ -80,12 +83,10 @@ while True:
         else:
             mood_word = "super happy 🤩"
 
-
-        # Ask use if they want to write a short note
+        # Ask user if they want to write a short note
         note_input = input("Short note: ")
 
-
-        # Check which day is it, save the mood and note to the corsponding variables
+        # Check which day is it, save the mood and note to the corresponding variables
         if day_num == 1:
             monday_mood = mood
             monday_note = note_input
@@ -124,7 +125,7 @@ while True:
 
     # Option 2: See summary to allow user to see which day is recorded and which is not
     elif choice == 2:
-        print("") #new line
+        print("")  # new line
         print("--- Weekly Summary ---")
         print("Monday Mood:", monday_mood, "Note:", monday_note)
         print("Tuesday Mood:", tuesday_mood, "Note:", tuesday_note)
@@ -141,16 +142,16 @@ while True:
     # Tutorial used: https://matplotlib.org/stable/users/explain/quick_start.html
     # I follow tutorial example to learn how to plot line and show it
     elif choice == 3:
-        x = ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday", "Sunday"]
-        y = [monday_mood, tuesday_mood, wednesday_mood, thursday_mood, friday_mood, saturday_mood, sunday_mood]
+        x = ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday", "Sunday"]  # x axis labels
+        y = [monday_mood, tuesday_mood, wednesday_mood, thursday_mood, friday_mood, saturday_mood, sunday_mood]  # y axis values
 
-        plt.plot(x, y, marker='o')
-        plt.ylim(0, 10)
-        plt.title("Weekly Mood Trend")
-        plt.xlabel("Day")
-        plt.ylabel("Mood (1-10)")
-        plt.grid(True)
-        plt.show()
+        plt.plot(x, y, marker='o')  # draw line graph
+        plt.ylim(0, 10)  # set y axis range 0-10
+        plt.title("Weekly Mood Trend")  # graph title
+        plt.xlabel("Day")  # x axis label
+        plt.ylabel("Mood (1-10)")  # y axis label
+        plt.grid(True)  # show grid
+        plt.show()  # show graph window
 
     # Option 4: Save and exit
     # Reference:
@@ -159,7 +160,7 @@ while True:
     # Tutorial used: https://matplotlib.org/stable/users/explain/quick_start.html#save-figures
     # I learn how to save figure to pdf file from this tutorial
     elif choice == 4:
-        file = open("mood_week.txt", "w")
+        file = open("mood_week.txt", "w")  # create and open text file
         file.write("Monday Mood: " + str(monday_mood) + " Note: " + monday_note + "\n")
         file.write("Tuesday Mood: " + str(tuesday_mood) + " Note: " + tuesday_note + "\n")
         file.write("Wednesday Mood: " + str(wednesday_mood) + " Note: " + wednesday_note + "\n")
@@ -167,9 +168,9 @@ while True:
         file.write("Friday Mood: " + str(friday_mood) + " Note: " + friday_note + "\n")
         file.write("Saturday Mood: " + str(saturday_mood) + " Note: " + saturday_note + "\n")
         file.write("Sunday Mood: " + str(sunday_mood) + " Note: " + sunday_note + "\n")
-        file.close()
+        file.close()  # close file to save
 
-        plt.figure()
+        plt.figure()  # create a new figure
         plt.plot(["Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday", "Sunday"],
                  [monday_mood, tuesday_mood, wednesday_mood, thursday_mood, friday_mood, saturday_mood, sunday_mood],
                  marker='o')
@@ -178,13 +179,13 @@ while True:
         plt.xlabel("Day")
         plt.ylabel("Mood (1-10)")
         plt.grid(True)
-        plt.savefig("mood_week_graph.pdf")
-        plt.close()
+        plt.savefig("mood_week_graph.pdf")  # save graph as pdf file
+        plt.close()  # close figure
 
         print("Text saved as mood_week.txt")
         print("Graph saved as mood_week_graph.pdf")
         print("All saved. Bye!")
-        break
+        break  # break the loop to stop the program
 
     else:
-        print("Invalid choice")
+        print("Invalid choice")  # show error message if user input is wrong
