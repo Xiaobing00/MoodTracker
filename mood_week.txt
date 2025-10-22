@@ -1,7 +1,7 @@
-Monday Mood: 5 Note: nothing 
-Tuesday Mood: 10 Note: received a gift
-Wednesday Mood: 2 Note: 
-Thursday Mood: 0 Note: 
-Friday Mood: 0 Note: 
-Saturday Mood: 0 Note: 
-Sunday Mood: 0 Note: 
+Monday Mood: 10 Note: no morning class
+Tuesday Mood: 8 Note: aced an exame
+Wednesday Mood: 4 Note: missing home, today is chinese festival
+Thursday Mood: 2 Note: missing home food
+Friday Mood: 8 Note: weekend is coming
+Saturday Mood: 10 Note: hiking
+Sunday Mood: 3 Note: 
