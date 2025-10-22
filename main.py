@@ -32,25 +32,30 @@ saturday_note = ""
 sunday_note = ""
 
 # This is the main loop
-# We use while True because we want the program to keep running
-# until the user chooses to save and exit
-# It will show menu again and again
+# I use while True because I want the menu to keep showing until the user exits
+# I learned this loop idea from:
+# EyeHunt. (2021). How to keep asking for user input Python | Example code. https://tutorial.eyehunts.com/python/how-to-keep-asking-for-user-input-python-example-code/
+# Reddit. (2025). Creating a loop until user enters a specific value to exit program. https://www.reddit.com/r/learnpython/comments/fc2ors/creating_a_loop_until_user_enters_a_specific/
+# GeeksforGeeks. (2025). How to use while True in Python. https://www.geeksforgeeks.org/python/how-to-use-while-true-in-python/
 while True:
-    print("")  # print empty line to make it look cleaner
+    print("")  # empty line to make the menu look clean
     print("--- Mood Tracker Options ---")  # menu title
-    print("1. Record Mood")  # option 1
-    print("2. View Summary")  # option 2
-    print("3. Plot Mood Graph (show)")  # option 3
-    print("4. Save All and Exit")  # option 4
+    print("1. Record Mood")
+    print("2. View Summary")
+    print("3. Plot Mood Graph (show)")
+    print("4. Save All and Exit")
 
     choice_input = input("Choose option: ")  # ask user to choose
-    choice = int(choice_input)  # convert string to number
+    # I learned here that input() always gives string
+    # If I do not change to int, the program will crash when I compare
+    # I learned this from error message and tutorial: https://www.w3schools.com/python/python_datatypes.asp
+    choice = int(choice_input)
 
     # Option 1: Record mood
-    # Use should choose the which day is it first from 1-7
+    # User should choose which day first
     if choice == 1:
         print("")
-        print("Which day is it?")  # ask user to choose day
+        print("Which day is it?")
         print("1 - Monday")
         print("2 - Tuesday")
         print("3 - Wednesday")
@@ -59,19 +64,19 @@ while True:
         print("6 - Saturday")
         print("7 - Sunday")
 
-        # Save the inputs in day_input
+        # I ask user to input the day number
+        # I change it to int to use it in condition
         day_input = input("Type the number of the day: ")
-        # Type casting: convert string to integer
         day_num = int(day_input)
 
-        # Save the mood in mood_input
+        # Then I ask for mood number
+        # Here also must change to int, or it will not work in the if condition below
         mood_input = input("Mood from 1 to 10: ")
-        # Type casting: convert string to integer
         mood = int(mood_input)
 
-        # Determine mood word. 
-        # Feedback in class: We don't want to show the number only, we want to show actual word of the mood
-        # I added emoji to each to make it more vivid
+        # Determine mood word
+        # Feedback from class: not just show number, but show mood feeling word
+        # I add emoji to make it more easy to understand
         if mood <= 2:
             mood_word = "really down 😢"
         elif mood <= 4:
@@ -83,10 +88,12 @@ while True:
         else:
             mood_word = "super happy 🤩"
 
-        # Ask user if they want to write a short note
+        # Ask user for short note
         note_input = input("Short note: ")
 
-        # Check which day is it, save the mood and note to the corresponding variables
+        # Save the mood and note to correct day
+        # I use if condition to match the input number
+        # I learn this logic from examples in class and tutorial: https://www.w3schools.com/python/python_conditions.asp
         if day_num == 1:
             monday_mood = mood
             monday_note = note_input
@@ -118,14 +125,17 @@ while True:
         else:
             print("Invalid day number")
 
-        # Print the user's input
+        # Print what the user recorded
+        # I do this to help user check and to debug myself
         print("Your mood number is:", mood)
         print("Your feeling is:", mood_word)
         print("Your note is:", note_input)
 
-    # Option 2: See summary to allow user to see which day is recorded and which is not
+    # Option 2: Summary
+    # I use print to show all records
+    # This helps user check their data and also helps me see bugs quickly
     elif choice == 2:
-        print("")  # new line
+        print("") # new line
         print("--- Weekly Summary ---")
         print("Monday Mood:", monday_mood, "Note:", monday_note)
         print("Tuesday Mood:", tuesday_mood, "Note:", tuesday_note)
@@ -136,56 +146,63 @@ while True:
         print("Sunday Mood:", sunday_mood, "Note:", sunday_note)
 
     # Option 3: Plot graph using matplotlib
-    # Reference:
-    # Matplotlib Development Team. "matplotlib.pyplot.plot — Plotting in Pyplot." Matplotlib.org
-    # https://matplotlib.org/stable/api/_as_gen/matplotlib.pyplot.plot.html
-    # Tutorial used: https://matplotlib.org/stable/users/explain/quick_start.html
-    # I follow tutorial example to learn how to plot line and show it
+    # I learn how to plot a line chart from Matplotlib official doc and tutorial:
+    # Matplotlib Development Team. (2025). https://matplotlib.org/stable/api/_as_gen/matplotlib.pyplot.plot.html
+    # W3Schools. (2025). https://www.w3schools.com/python/matplotlib_intro.asp
+    # Real Python. (2025). https://realpython.com/read-write-files-python/
     elif choice == 3:
-        x = ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday", "Sunday"]  # x axis labels
-        y = [monday_mood, tuesday_mood, wednesday_mood, thursday_mood, friday_mood, saturday_mood, sunday_mood]  # y axis values
+        x = ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday", "Sunday"]
+        y = [monday_mood, tuesday_mood, wednesday_mood, thursday_mood, friday_mood, saturday_mood, sunday_mood]
 
-        plt.plot(x, y, marker='o')  # draw line graph
-        plt.ylim(0, 10)  # set y axis range 0-10
-        plt.title("Weekly Mood Trend")  # graph title
-        plt.xlabel("Day")  # x axis label
-        plt.ylabel("Mood (1-10)")  # y axis label
-        plt.grid(True)  # show grid
-        plt.show()  # show graph window
-
-    # Option 4: Save and exit
-    # Reference:
-    # Matplotlib Development Team. "matplotlib.pyplot.savefig — Save the current figure." Matplotlib.org
-    # https://matplotlib.org/stable/api/_as_gen/matplotlib.pyplot.savefig.html
-    # Tutorial used: https://matplotlib.org/stable/users/explain/quick_start.html#save-figures
-    # I learn how to save figure to pdf file from this tutorial
-    elif choice == 4:
-        file = open("mood_week.txt", "w")  # create and open text file
-        file.write("Monday Mood: " + str(monday_mood) + " Note: " + monday_note + "\n")
-        file.write("Tuesday Mood: " + str(tuesday_mood) + " Note: " + tuesday_note + "\n")
-        file.write("Wednesday Mood: " + str(wednesday_mood) + " Note: " + wednesday_note + "\n")
-        file.write("Thursday Mood: " + str(thursday_mood) + " Note: " + thursday_note + "\n")
-        file.write("Friday Mood: " + str(friday_mood) + " Note: " + friday_note + "\n")
-        file.write("Saturday Mood: " + str(saturday_mood) + " Note: " + saturday_note + "\n")
-        file.write("Sunday Mood: " + str(sunday_mood) + " Note: " + sunday_note + "\n")
-        file.close()  # close file to save
-
-        plt.figure()  # create a new figure
-        plt.plot(["Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday", "Sunday"],
-                 [monday_mood, tuesday_mood, wednesday_mood, thursday_mood, friday_mood, saturday_mood, sunday_mood],
-                 marker='o')
+        plt.plot(x, y, marker='o')
         plt.ylim(0, 10)
         plt.title("Weekly Mood Trend")
         plt.xlabel("Day")
         plt.ylabel("Mood (1-10)")
         plt.grid(True)
-        plt.savefig("mood_week_graph.pdf")  # save graph as pdf file
-        plt.close()  # close figure
+        plt.show()
+
+    # Option 4: Save to file and exit
+    # I use file.write to save my record
+    # I learned how to use write() and '\n' from:
+    # W3Schools. https://www.w3schools.com/python/python_file_write.asp
+    # Programiz. https://www.programiz.com/python-programming/file-operation
+    # Web Physics Utah. https://web.physics.utah.edu/~detar/lessons/python/fileio_formatting/node14.html
+    # freeCodeCamp. https://www.freecodecamp.org/news/print-newline-in-python/
+    elif choice == 4:
+        file = open("mood_week.txt", "w")
+        file.write("Monday Mood: " + str(monday_mood) + " Note: " + monday_note + "\n") # we use \n to make new line
+        #\n is a escape character. Lerned about escape characters from:
+        #https://www.geeksforgeeks.org/python/python-new-line-add-print-a-new-line/
+        file.write("Tuesday Mood: " + str(tuesday_mood) + " Note: " + tuesday_note + "\n") # we use str to convert int to string. Leraned from:
+        #https://www.google.com/url?q=https://www.shecodes.io/athena/2142-converting-an-integer-to-string-in-python&sa=D&source=docs&ust=1761144207339882&usg=AOvVaw1ewUlB067DpaLcVd19Ex7a
+        file.write("Wednesday Mood: " + str(wednesday_mood) + " Note: " + wednesday_note + "\n")
+        file.write("Thursday Mood: " + str(thursday_mood) + " Note: " + thursday_note + "\n")
+        file.write("Friday Mood: " + str(friday_mood) + " Note: " + friday_note + "\n")
+        file.write("Saturday Mood: " + str(saturday_mood) + " Note: " + saturday_note + "\n")
+        file.write("Sunday Mood: " + str(sunday_mood) + " Note: " + sunday_note + "\n")
+        file.close()
+
+        # I learned how to save plot as PDF from:
+        # Matplotlib Development Team. https://matplotlib.org/stable/api/_as_gen/matplotlib.pyplot.savefig.html
+        plt.figure()
+        plt.plot(["Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday", "Sunday"],
+                 [monday_mood, tuesday_mood, wednesday_mood, thursday_mood, friday_mood, saturday_mood, sunday_mood],
+                 marker='o')
+        plt.ylim(0, 10) #set y axis limit; 10 is the max mood, 0 is the default min when user has not recorded
+        plt.title("Weekly Mood Trend") # title of the graph
+        plt.xlabel("Day") # x axis label
+        plt.ylabel("Mood (1-10)") # y axis label
+        plt.grid(True)  # add grid for better visualization
+        plt.savefig("mood_week_graph.pdf") # save as PDF
+        plt.close() #remeber to close the plot
 
         print("Text saved as mood_week.txt")
         print("Graph saved as mood_week_graph.pdf")
         print("All saved. Bye!")
-        break  # break the loop to stop the program
+        break
 
     else:
-        print("Invalid choice")  # show error message if user input is wrong
+        # I learned about input validation after my friend typed 5 and program froze
+        # In future I want to add better input checks
+        print("Invalid choice")
